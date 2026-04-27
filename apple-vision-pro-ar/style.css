@@ -1,0 +1,467 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #0f172a;
+  color: #ffffff;
+  font-family: Arial, "Noto Sans KR", sans-serif;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.screen {
+  display: none;
+  width: 100vw;
+  min-height: 100vh;
+}
+
+.screen.active {
+  display: block;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* 시작 화면 */
+#startScreen {
+  background:
+    radial-gradient(circle at center 70%, rgba(80, 150, 255, 0.45), transparent 25%),
+    linear-gradient(180deg, #111827, #020617);
+  text-align: center;
+  padding: 80px 24px;
+}
+
+.start-card {
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+.small-label {
+  color: #93c5fd;
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+
+.start-card h1 {
+  font-size: 38px;
+  margin: 12px 0;
+}
+
+.subtitle {
+  font-size: 18px;
+  color: #dbeafe;
+  margin-bottom: 40px;
+}
+
+.primary-btn {
+  border: none;
+  background: white;
+  color: #111827;
+  padding: 14px 28px;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* 메인 메뉴 */
+#menuScreen {
+  padding: 36px 20px;
+  background: #f8fafc;
+  color: #111827;
+}
+
+.phone-layout {
+  max-width: 420px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 28px;
+  padding: 28px 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.18);
+}
+
+.phone-layout h2 {
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.guide-text {
+  text-align: center;
+  color: #64748b;
+}
+
+.zone-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 26px 0;
+}
+
+.zone-card {
+  height: 110px;
+  border: none;
+  border-radius: 18px;
+  color: white;
+  font-size: 16px;
+}
+
+.zone-card strong {
+  display: block;
+  font-size: 24px;
+}
+
+.zone-card span {
+  display: block;
+  margin-top: 8px;
+}
+
+.blue {
+  background: #2563eb;
+}
+
+.green {
+  background: #0f766e;
+}
+
+.purple {
+  background: #7c3aed;
+}
+
+.orange {
+  background: #ea580c;
+}
+
+.location-box {
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 16px;
+  color: #334155;
+}
+
+/* Zone 화면 */
+#zoneScreen {
+  padding-bottom: 92px;
+}
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 20px;
+  background: rgba(15, 23, 42, 0.95);
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+.back-btn {
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  background: #1e293b;
+  color: white;
+  font-size: 20px;
+}
+
+.top-bar h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.top-bar p {
+  margin: 4px 0 0;
+  color: #cbd5e1;
+  font-size: 14px;
+}
+
+.viewer-area {
+  position: relative;
+  width: 100%;
+  height: 62vh;
+  min-height: 420px;
+  background:
+    linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+    radial-gradient(circle at center, #334155, #111827 70%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+model-viewer {
+  width: 100%;
+  height: 100%;
+}
+
+.ar-btn {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  border: none;
+  background: #2563eb;
+  color: white;
+  padding: 14px 18px;
+  border-radius: 14px;
+  font-weight: bold;
+}
+
+.zone-actions {
+  display: grid;
+  gap: 10px;
+  padding: 14px;
+  background: #0f172a;
+}
+
+.zone-actions button {
+  border: none;
+  border-radius: 12px;
+  padding: 14px;
+  background: #eaf2ff;
+  color: #1d4ed8;
+  font-weight: bold;
+}
+
+/* Zone 1 팝업 */
+.info-panel {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 112px;
+  z-index: 10;
+  background: white;
+  color: #111827;
+  padding: 20px;
+  border-radius: 18px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+}
+
+.info-panel h3 {
+  margin: 0 36px 10px 0;
+}
+
+.info-panel p {
+  color: #475569;
+  line-height: 1.6;
+}
+
+.close-btn {
+  position: absolute;
+  right: 14px;
+  top: 14px;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 18px;
+}
+
+/* Zone 2 앱 카드 */
+.app-cards {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.floor-box {
+  position: absolute;
+  left: 22%;
+  top: 30%;
+  width: 56%;
+  height: 42%;
+  border: 2px dashed rgba(255,255,255,0.65);
+  transform: perspective(600px) rotateX(55deg);
+  border-radius: 18px;
+}
+
+.app-card {
+  position: absolute;
+  width: 88px;
+  height: 88px;
+  background: rgba(255,255,255,0.9);
+  color: #111827;
+  border-radius: 18px;
+  text-align: center;
+  padding-top: 14px;
+  font-size: 26px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+}
+
+.app-card span {
+  display: block;
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+.calendar { left: 30%; top: 32%; }
+.browser { left: 54%; top: 30%; }
+.memo { left: 42%; top: 46%; }
+.music { left: 58%; top: 54%; }
+.photo { left: 28%; top: 58%; }
+
+/* Zone 3 영상 */
+.video-wrap {
+  width: 88%;
+  max-width: 980px;
+}
+
+.video-wrap video {
+  width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.45);
+}
+
+.screen-controls {
+  margin: 14px auto 0;
+  padding: 12px;
+  background: rgba(255,255,255,0.92);
+  color: #111827;
+  border-radius: 16px;
+}
+
+.screen-controls p {
+  margin: 0 0 8px;
+  font-weight: bold;
+}
+
+.screen-controls button {
+  border: none;
+  background: #2563eb;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 10px;
+  margin: 0 4px;
+}
+
+/* Zone 4 카메라 */
+.camera-ui {
+  position: absolute;
+  bottom: 22px;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.camera-btn {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  border: 6px solid white;
+  background: rgba(255,255,255,0.4);
+  color: white;
+  font-size: 0;
+}
+
+.camera-ui p {
+  margin: 8px 0 0;
+  font-size: 13px;
+  color: #e5e7eb;
+}
+
+/* 하단 네비 */
+.bottom-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: #020617;
+  padding: 10px;
+  gap: 8px;
+}
+
+.bottom-nav button {
+  border: 1px solid #334155;
+  background: #111827;
+  color: #cbd5e1;
+  padding: 12px 4px;
+  border-radius: 14px;
+  font-size: 12px;
+}
+
+.bottom-nav button.active {
+  background: #2563eb;
+  color: white;
+}
+
+/* 공유 화면 */
+#shareScreen {
+  background: #f8fafc;
+  color: #111827;
+  padding: 28px 16px;
+}
+
+.share-card {
+  max-width: 430px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 28px;
+  padding: 24px 18px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.18);
+  text-align: center;
+}
+
+.share-model {
+  width: 100%;
+  height: 220px;
+  background: #e5e7eb;
+  border-radius: 18px;
+}
+
+.stamp {
+  width: 150px;
+  height: 150px;
+  border: 3px solid #111827;
+  border-radius: 50%;
+  margin: 18px auto 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  line-height: 1.4;
+  font-weight: bold;
+}
+
+.hashtag {
+  color: #2563eb;
+  font-weight: bold;
+}
+
+.sns-row {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 14px 0;
+}
+
+.sns-row span {
+  background: #e0f2fe;
+  color: #0369a1;
+  padding: 8px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+.outline-btn {
+  width: 100%;
+  margin-top: 10px;
+  border: 1px solid #cbd5e1;
+  background: white;
+  color: #111827;
+  padding: 13px;
+  border-radius: 12px;
+}
+
+.text-btn {
+  margin-top: 12px;
+  border: none;
+  background: transparent;
+  color: #64748b;
+  padding: 12px;
+}
