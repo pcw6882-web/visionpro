@@ -465,3 +465,8 @@ model-viewer {
   color: #64748b;
   padding: 12px;
 }
+
+.video-wrap {
+  position: relative;
+  z-index: 2;
+}

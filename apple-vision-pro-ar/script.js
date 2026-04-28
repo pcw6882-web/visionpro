@@ -28,9 +28,28 @@ function showScreen(screen) {
 
 function goMenu() {
   video.pause();
+
+  const audio = document.getElementById("audio");
+  audio.pause();
+
   closeInfo();
   showScreen(menuScreen);
 }
+
+const audio = document.getElementById("audio");
+
+video.addEventListener("pause", () => {
+  audio.pause();
+});
+
+video.addEventListener("play", () => {
+  audio.play();
+});
+
+video.addEventListener("ended", () => {
+  audio.pause();
+  audio.currentTime = 0;
+});
 
 function openZone(zoneNumber) {
   showScreen(zoneScreen);
@@ -95,6 +114,7 @@ function openZone(zoneNumber) {
       <button onclick="resizeVideo('big')">스크린 크게</button>
       <button onclick="resizeVideo('small')">스크린 작게</button>
     `;
+    document.querySelector(".screen-controls").style.display = "none";
   }
 
   if (zoneNumber === 4) {
@@ -156,6 +176,8 @@ function resetApps() {
 }
 
 function playVideo() {
+  video.currentTime = 0;
+  audio.currentTime = 0;
   video.play();
 }
 
