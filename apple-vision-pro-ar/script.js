@@ -40,6 +40,9 @@ const audio = document.getElementById("audio");
 
 
 
+video.addEventListener("pause", () => {
+  audio.pause();
+});
 video.addEventListener("ended", () => {
   audio.pause();
   audio.currentTime = 0;
