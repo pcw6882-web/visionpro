@@ -38,10 +38,6 @@ function goMenu() {
 
 const audio = document.getElementById("audio");
 
-video.addEventListener("pause", () => {
-  audio.pause();
-});
-
 
 
 video.addEventListener("ended", () => {
