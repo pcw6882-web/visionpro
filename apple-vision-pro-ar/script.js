@@ -173,7 +173,7 @@ function playVideo() {
   video.currentTime = 0;
   audio.currentTime = 0;
 
-  video.muted = true;   // 🔥 핵심
+  
   video.play();
 
   audio.play();
