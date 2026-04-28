@@ -173,13 +173,10 @@ function playVideo() {
   video.currentTime = 0;
   audio.currentTime = 0;
 
-  audio.play().then(() => {
-    console.log("오디오 재생 성공");
-  }).catch((e) => {
-    console.log("오디오 재생 실패", e);
-  });
-
+  video.muted = true;   // 🔥 핵심
   video.play();
+
+  audio.play();
 }
 
 function resizeVideo(size) {
