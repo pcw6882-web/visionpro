@@ -42,9 +42,7 @@ video.addEventListener("pause", () => {
   audio.pause();
 });
 
-video.addEventListener("play", () => {
-  audio.play();
-});
+
 
 video.addEventListener("ended", () => {
   audio.pause();
@@ -178,6 +176,7 @@ function resetApps() {
 function playVideo() {
   video.currentTime = 0;
   audio.currentTime = 0;
+   audio.play();
   video.play();
 }
 
